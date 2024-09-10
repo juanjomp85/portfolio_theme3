@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modesign | Mi Portafolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Modesign Logo">
+        </div>
+        <!-- Botón hamburguesa para pantallas pequeñas -->
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            &#9776; <!-- Icono de hamburguesa -->
+        </button>
+        <nav id="navbar">
+            <ul class="nav-links">
+                <li><a href="#about">Sobre Mí</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#testimonials">Testimonios</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección Sobre Mí -->
+    <section id="about">
+        <h2>Sobre Mí</h2>
+        <p>Desarrollador web especializado en crear interfaces visuales únicas.</p>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="services">
+        <h2>Servicios</h2>
+        <div class="service-container">
+            <div class="service-card">
+                <h3>Diseño Web</h3>
+                <p>Diseño personalizado adaptado a las necesidades de cada cliente.</p>
+            </div>
+            <div class="service-card">
+                <h3>Desarrollo Frontend</h3>
+                <p>Programación de interfaces interactivas con tecnologías modernas.</p>
+            </div>
+            <div class="service-card">
+                <h3>Optimización SEO</h3>
+                <p>Mejora del rendimiento y posicionamiento de tu web en los buscadores.</p>
+            </div>
+        </div>
+    </section>
+	
+	<!-- Sección única de Proyectos -->
+    <section id ="projects" class="project-section">
+        <div class="toggle-switch">
+            <!-- Botón interruptor (toggle) para cambiar entre desarrollo y diseño -->
+            <label class="switch">
+                <input type="checkbox" id="categoryToggle">
+                <span class="slider"></span>
+            </label>
+            <h2>Proyectos <span id="projectCategoryLabel">de desarrollo</span></h2>
+        </div>
+        
+        <!-- Contenedor de Proyectos de Desarrollo (inicialmente visible) -->
+        <div class="projects-container development-projects">
+			<a href="">
+				<div class="project-card">
+					<h3>Proyecto 1</h3>
+					<p>Rediseño completo de un ecommerce, incrementando sus conversiones en un 30%.</p>
+				</div>
+			</a>
+			<a href="">
+				<div class="project-card">
+					<h3>Proyecto 2</h3>
+					<p>Desarrollo de una plataforma de gestión interna para una empresa de logística.</p>
+				</div>
+			</a>
+        </div>
+
+        <!-- Contenedor de Proyectos de Diseño (inicialmente oculto) -->
+        <div class="projects-container design-projects hidden">
+			<a href="proyecto1.html">
+				<div class="project-card">
+					<h3>Prototipos Avanzados</h3>
+					<p>Diseños de identidad visual para nuevas marcas.</p>
+				</div>
+			</a>
+			<a href="proyecto2.html">
+				<div class="project-card">
+					<h3>Mercadona</h3>
+					<p>Adaptación de un nuevo servicio dentro de la app.</p>
+				</div>
+			</a>
+        </div>
+    </section>
+
+    <!-- Sección de Testimonios -->
+    <section id="testimonials">
+        <h2>Testimonios</h2>
+        <div class="testimonial-container">
+            <blockquote>
+                <p>"Elevó nuestra presencia online a otro nivel. 100% recomendado."</p>
+                <cite>- Cliente Satisfecho</cite>
+            </blockquote>
+            <blockquote>
+                <p>"Capturó perfectamente la esencia de nuestra marca."</p>
+                <cite>- Otro Cliente</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <!-- Columna Izquierda: Información de contacto -->
+            <div class="contact-info">
+                <h1>Hablemos.</h1>
+                <p>info@juanjomp.com</p>
+                <div class="social-icons">
+                    <!-- Enlaces de redes sociales -->
+                    <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+                    <a href="#"><img src="github-icon.png" alt="GitHub"></a>
+                </div>
+                <!-- Botón de WhatsApp -->
+                <a href="https://api.whatsapp.com/send?phone=34658953262&text=Hola%2C%20tengo%20tu%20informaci%C3%B3n%20de%20WhatsApp%20de%20tu%20web." class="whatsapp-button">Chat en WhatsApp</a>
+            </div>
+
+            <!-- Columna Derecha: Formulario de contacto -->
+            <div class="contact-form">
+                <p>Contáctame y proporciona detalles sobre tu consulta. Me pondré en contacto contigo pronto.</p>
+				<form id="contact-form" action="https://submit-form.com/K3EhPqaHc" method="POST"> <!--  -->
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="" required="" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="" required="" />
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control"
+                    id="message"
+                    name="message"
+                    placeholder=""
+                    required=""
+                    ></textarea>
+                </div>
+                <button type="submit" >Enviar</button>
+                <div id="form-response" class="mt-3"></div>
+              </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Modesign. Todos los derechos reservados.</p>
+    </footer>
+	<script src="script.js"></script>
+</body>
+</html>
