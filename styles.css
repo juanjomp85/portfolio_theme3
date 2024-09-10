@@ -1,0 +1,628 @@
+/* Estilos generales */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #212121;
+    color: #f0f0f0;
+}
+
+/* Encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    position: relative;
+    z-index: 10;
+}
+
+/* Sticky header en pantallas grandes */
+@media (min-width: 768px) {
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+	.projects-container {
+        flex-direction: row;
+        flex-wrap: wrap; /* Permitir que las tarjetas se adapten al ancho */
+    }
+
+    .project-card {
+        flex: 1 1 48%; /* Cada tarjeta ocupa casi la mitad del contenedor */
+        margin: 1%;
+    }
+}
+
+/* Logo */
+header .logo img {
+    width: 150px;
+}
+
+/* Navegación */
+nav {
+    display: flex;
+}
+
+/* Links del menú */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #22cc3f;
+}
+
+/* Botón hamburguesa para pantallas pequeñas */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Estilo para el menú en pantallas pequeñas */
+@media (max-width: 768px) {
+    nav {
+        position: absolute;
+        top: 60px; /* Se posiciona debajo del header */
+        right: 0;
+        width: 100%;
+        background-color: #333;
+        display: none; /* Ocultamos el menú inicialmente */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    /* Mostrar el menú hamburguesa */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Cuando el menú está activo (se muestra al hacer clic en el botón) */
+    nav.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+	.project-card {
+        width: 100%;
+    }
+}
+
+/* Secciones */
+section {
+    padding: 40px 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    background-color: #333;
+    border-radius: 12px;
+    box-shadow: inset 0px 4px 6px rgba(0,0,0,0.4);
+    color: #f0f0f0;
+}
+
+/* Contenedor de Servicios y Proyectos */
+.service-container, .testimonial-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre las tarjetas */
+    width: 100%;
+    padding: 0; /* Elimina cualquier padding adicional en el contenedor */
+}
+
+/* Tarjetas Interactivas */
+.service-card, blockquote {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 12px;
+    flex: 1;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.6), inset 0 4px 8px rgba(0,0,0,0.2);
+    color: white;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.project-card {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6), inset 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+    width: 100%; /* Ocupar todo el ancho disponible */
+    box-sizing: border-box; /* Asegura que padding no se sume al ancho */
+    margin: 0; /* Elimina cualquier margen adicional */
+}
+
+.service-card:hover, .project-card:hover, blockquote:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7), inset 0 0px 0px 6px rgba(34, 204, 63, 0.5);
+}
+
+/* Estilos del Interruptor */
+.switch {
+    display: block;
+    margin-top: 20px;
+}
+
+.slider {
+    background-color: #444;
+    border-radius: 100px;
+    padding: 1px;
+    margin: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    align-items: center;
+    position: relative;
+    display: block;
+    width: 51px;
+    height: 29px;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.7), inset 0 0 24px rgba(34, 204, 63, 0), rgba(224, 224, 224, 0.45) 0 1px 0;
+}
+
+.slider::after {
+    content: "";
+    display: flex;
+    top: 2.3px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background-color: #e3e3e3;
+    border-radius: 200px;
+    position: absolute;
+    box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3) 0px 6px 6px;
+    transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: left, background-color;
+}
+
+.switch input[type="checkbox"]:checked + .slider {
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.7), inset 0 0px 2px rgba(34, 204, 63, 1), inset 0 0px 24px rgba(34, 204, 63, 0.5);
+}
+
+.switch input[type="checkbox"]:checked + .slider::after {
+    left: 32px;
+}
+
+.switch input[type="checkbox"] {
+    display: none;
+}
+ 
+/* .slider {
+  background-color: #ffffff2b;
+  border-radius: 100px;
+  padding: 1px;
+  margin: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  align-items: center;
+  position: relative;
+  display: block;
+  width: 51px;
+  height: 29px;
+  box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, rgba(0, 0, 0, 0.21) 0px 0px 0px 24px inset,
+        #22cc3f 0px 0px 0px 0px inset, rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
+}
+
+.slider::after {
+  content: "";
+  display: flex;
+  top: 2.3px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: #e3e3e3;
+  border-radius: 200px;
+  position: absolute;
+  box-shadow: transparent 0px 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 6px 6px;
+  transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s, background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  will-change: left, background-color;
+}
+
+.switch input[type="checkbox"]:checked + .slider {
+  box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, #22cc3f 0px 0px 0px 2px inset, #22cc3f 0px 0px 0px 24px inset,
+        rgba(244, 224, 224, 0.45) 0px 1px 0px 0px;
+}
+
+.switch input[type="checkbox"]:checked + .slider::after {
+  left: 30px;
+}
+
+.switch input[type="checkbox"] {
+  display: none;
+} */
+
+/*Proyectos*/
+/* Estilos generales */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #212121;
+    color: #f0f0f0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Encabezado */
+header {
+    background-color: #333;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    width: 150px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #22cc3f;
+}
+
+/* Título del Proyecto */
+.project-title {
+    background-color: #444;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.project-title h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.project-subtitle {
+    font-size: 18px;
+    color: #ccc;
+}
+
+/* Contenido del Proyecto */
+.project-content {
+    padding: 40px 0;
+}
+
+.project-description {
+    margin-bottom: 40px;
+}
+
+.project-description h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.project-gallery h2,
+.project-features h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.gallery {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gallery img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.project-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-features ul li {
+    background-color: #555;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+.project-link .btn {
+    display: inline-block;
+    background-color: #22cc3f;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.project-link .btn:hover {
+    background-color: #1ba22b;
+}
+
+/* Navegación de Proyectos */
+.project-navigation {
+    background-color: #444;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.project-navigation .btn {
+    display: inline-block;
+    background-color: #555;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.project-navigation .btn:hover {
+    background-color: #777;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+}
+
+/*Proyectos toggle*/
+/* General */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #212121;
+    color: #f0f0f0;
+}
+
+/* Sección de Proyectos */
+.project-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 12px;
+    box-shadow: inset 0px 4px 6px rgba(0,0,0,0.4);
+}
+
+.project-section h2 {
+    display: inline-block;
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.project-section h2 span {
+    color: #22cc3f;
+    font-weight: bold;
+}
+
+/* Contenedor de Proyectos */
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.6), inset 0 4px 8px rgba(0,0,0,0.2);
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Interruptor estilo toggle */
+.switch {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 34px;
+    margin-right: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #22cc3f;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Ocultar proyectos cuando están deshabilitados */
+.hidden {
+    display: none;
+}
+
+/*Contacto*/
+/* Estilos generales */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #212121;
+    color: #f0f0f0;
+}
+
+.contact-section {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Columna izquierda: Información de contacto */
+.contact-info {
+    flex: 1;
+    margin-right: 50px;
+}
+
+.contact-info h1 {
+    font-size: 48px;
+    margin-bottom: 260px; /*modificar esto*/
+}
+
+.contact-info p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons img {
+    width: 32px;
+    height: 32px;
+}
+
+.whatsapp-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #25D366; /* Color típico de WhatsApp */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Columna derecha: Formulario de contacto */
+.contact-form {
+    flex: 1;
+}
+
+.contact-form p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.contact-form input, .contact-form textarea {
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+	background-color: #444;
+	color: white;
+}
+
+.contact-form textarea {
+    height: 150px;
+	background-color: #444;
+	color: white;
+}
+
+.contact-form button {
+    background-color: #22cc3f;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-form button:hover {
+    background-color: #1ba22b;
+}
